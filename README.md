@@ -9,7 +9,7 @@ Allow it to edit your `PATH` and wait for installation. Once installed run in ne
 ```
 fuelup toolchain install latest
 ```
-
+## Develop on Fuel
 Start a new project  
 ```
 forc new fuel-counter-project
@@ -23,3 +23,25 @@ Write tests and execute them
 ```
 rustup update stable && cargo test
 ```
+## Deploy on Fuel testnet
+Add wallet
+```
+cargo install forc-wallet
+```
+Import wallet from mnemonic phrase
+```
+forc-wallet import
+```
+Create account
+```
+forc-wallet account new
+```
+Save your address (e.g. `fuel18twnujtx4685jq8c4m5wsfwxctvvyk7uxk6x24g83h4azq8agq2sydmd79`)
+
+Deploy with
+```
+forc deploy --gas-price 1 --node-url node-beta-2.fuel.network/graphql
+```
+Paste adress you saved from previous stage
+
+See your contract on the network [Example](https://fuellabs.github.io/block-explorer-v2/beta-2/#/address/0x3edb96c23766b8504caaff042994efa18460e7ba27f60191394a6bcf5be8d7d8)
